@@ -4,30 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Товары</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style/styles.css">
 </head>
 <body>
-<header>
-    <nav>
-        <a href="index.html">Главная</a>
-        <a href="news.html">Новости</a>
-        <a href="goods.html">Товары</a>
-        <a href="contacts.html">Контакты</a>
+<div class="page-container">
+
+    <header class="header">
+        <h1>Наши товары</h1>
+    </header>
+
+    <nav class="nav">
+        <ul class="nav-list">
+            <li><a class="nav-link" href="../index.html">Главная</a></li>
+            <li><a class="nav-link" href="../pages/news.html">Новости</a></li>
+            <li><a class="nav-link" href="../pages/practices.html">Практики</a></li>
+            <li><a class="nav-link" href="goods.html">Товары</a></li>
+            <li><a class="nav-link" href="../pages/contacts.html">Контакты</a></li>
+        </ul>
     </nav>
-</header>
-<main>
-    <h1>Наши товары</h1>
-    <div class="goods-item">
-        <h2>Товар 1</h2>
-        <p>Описание первого товара.</p>
-    </div>
-    <div class="goods-item">
-        <h2>Товар 2</h2>
-        <p>Описание второго товара.</p>
-    </div>
-</main>
-<footer>
-    &copy; 2025 Недосекин А.С.
-</footer>
+
+    <main class="content">
+        <section class="products-grid">
+            <article class="product-card">
+                <img class="product-image" src="../images/product1.png" alt="Товар 1">
+                <h3 class="product-name">Товар 1</h3>
+                <p class="product-price">1000 ₽</p>
+            </article>
+            <article class="product-card">
+                <img class="product-image" src="../images/product2.png" alt="Товар 2">
+                <h3 class="product-name">Товар 2</h3>
+                <p class="product-price">1500 ₽</p>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 Недосекин А.С.</p>
+    </footer>
+
+</div>
 </body>
 </html>
