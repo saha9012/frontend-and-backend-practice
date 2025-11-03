@@ -34,6 +34,11 @@
                 <p><strong>Email:</strong> example@mail.com</p>
                 <p><strong>Адрес:</strong> г. Москва, ул. Примерная, д. 1</p>
             </div>
+
+            <!-- Кнопка для открытия модального окна -->
+            <button class="contact-button" onclick="document.getElementById('contactModal').showModal()">
+                Связаться с нами
+            </button>
         </section>
     </main>
 
@@ -42,6 +47,98 @@
         <p>&copy; 2025 Недосекин Александр Сергеевич, ЭФБО-15-24</p>
     </footer>
 
+    <!-- Модальное окно для формы обратной связи -->
+    <dialog id="contactModal">
+        <div class="modal-header">
+            <h2>Форма обратной связи</h2>
+        </div>
+
+        <div class="modal-content">
+            <form id="feedbackForm" method="dialog">
+                <div class="form-group">
+                    <label for="name">Имя <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Телефон <span class="required">*</span></label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+7 (XXX) XXX-XX-XX">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Электронная почта <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required placeholder="example@mail.ru">
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Категория обращения <span class="required">*</span></label>
+                    <select id="category" name="category" required>
+                        <option value="">Выберите категорию</option>
+                        <option value="technical">Техническая поддержка</option>
+                        <option value="commercial">Коммерческое предложение</option>
+                        <option value="cooperation">Сотрудничество</option>
+                        <option value="complaint">Жалоба</option>
+                        <option value="suggestion">Предложение</option>
+                        <option value="other">Другое</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Текст обращения <span class="required">*</span></label>
+                    <textarea id="message" name="message" required placeholder="Опишите вашу проблему или вопрос..."></textarea>
+                </div>
+
+                <div class="modal-actions">
+                    <!-- Кнопка отмены с автоматическим закрытием через form method="dialog" -->
+                    <button type="submit" class="btn btn-secondary">Отмена</button>
+                    <!-- Кнопка отправки с обработкой через JavaScript -->
+                    <button type="button" class="btn btn-primary" onclick="submitForm()">Отправить</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+    <script>
+        // Функция для отправки формы
+        function submitForm() {
+            const form = document.getElementById('feedbackForm');
+            const formData = new FormData(form);
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const data = {
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                email: formData.get('email'),
+                category: formData.get('category'),
+                message: formData.get('message')
+            };
+
+            console.log('Данные формы:', data);
+
+            alert('Спасибо! Ваше обращение отправлено. Мы свяжемся с вами в ближайшее время.');
+
+            document.getElementById('contactModal').close();
+            form.reset();
+        }
+
+        // Закрытие модального окна по клику на фон
+        document.getElementById('contactModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                this.close();
+            }
+        });
+
+        // Предотвращение отправки формы по Enter в input
+        document.getElementById('feedbackForm').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter' && event.target.type !== 'textarea') {
+                event.preventDefault();
+            }
+        });
+    </script>
 </div>
 </body>
 </html>
