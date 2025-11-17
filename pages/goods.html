@@ -1,46 +1,85 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Товары</title>
-    <link rel="stylesheet" href="../style/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Товары</title>
+  <link rel="stylesheet" href="../style/styles.css">
 </head>
-<body>
-<div class="page-container">
-
+<body class="theme--auto">
+  <div class="page">
     <header class="header">
-        <h1>Наши товары</h1>
+      <div class="header__wrap">
+        <h1 class="header__title">Товары</h1>
+        <div class="header__controls">
+          <button class="btn btn--ghost js-theme-toggle" aria-label="Переключить тему">🌓</button>
+        </div>
+      </div>
     </header>
 
     <nav class="nav">
-        <ul class="nav-list">
-            <li><a class="nav-link" href="../index.html">Главная</a></li>
-            <li><a class="nav-link" href="../pages/news.html">Новости</a></li>
-            <li><a class="nav-link" href="goods.html">Товары</a></li>
-            <li><a class="nav-link" href="../pages/contacts.html">Контакты</a></li>
-        </ul>
+      <ul class="nav__list">
+        <li class="nav__item"><a class="nav__link" href="../index.html">Главная</a></li>
+        <li class="nav__item"><a class="nav__link" href="news.html">Новости</a></li>
+        <li class="nav__item nav__item--active"><a class="nav__link" href="goods.html">Товары</a></li>
+        <li class="nav__item"><a class="nav__link" href="contacts.html">Контакты</a></li>
+      </ul>
     </nav>
 
-    <main class="content">
-        <section class="products-grid">
-            <article class="product-card">
-                <img class="product-image" src="../images/product1.png" alt="Товар 1">
-                <h3 class="product-name">Товар 1</h3>
-                <p class="product-price">1000 ₽</p>
-            </article>
-            <article class="product-card">
-                <img class="product-image" src="../images/product2.png" alt="Товар 2">
-                <h3 class="product-name">Товар 2</h3>
-                <p class="product-price">1500 ₽</p>
-            </article>
-        </section>
+    <main class="main">
+      <section class="products">
+        <h2 class="products__title">Каталог товаров</h2>
+        <div class="products__grid">
+          <!-- product card base -->
+          <article class="product-card">
+            <img class="product-card__img" src="../images/product1.png" alt="Товар 1">
+            <h3 class="product-card__title">Товар 1</h3>
+            <div class="product-card__price">₽1,200</div>
+            <button class="btn btn--primary product-card__buy">Купить</button>
+          </article>
+
+          <!-- product card with modifier (sale) -->
+          <article class="product-card product-card--sale">
+            <img class="product-card__img" src="../images/product2.png" alt="Товар 2">
+            <h3 class="product-card__title">Товар 2</h3>
+            <div class="product-card__price">₽850 <span class="product-card__old-price">₽1,100</span></div>
+            <button class="btn btn--primary product-card__buy">Купить</button>
+          </article>
+
+          <!-- selected state -->
+          <article class="product-card product-card--selected">
+            <img class="product-card__img" src="../images/product3.png" alt="Товар 3">
+            <h3 class="product-card__title">Товар 3</h3>
+            <div class="product-card__price">₽2,500</div>
+            <button class="btn btn--primary product-card__buy">Купить</button>
+          </article>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
-        <p>© 2025 Недосекин А.С.</p>
+      <p class="footer__text">© 2025 Недосекин А.С.</p>
     </footer>
+  </div>
 
-</div>
+  <script>
+    (function(){
+      const btn = document.querySelector('.js-theme-toggle');
+      const body = document.body;
+      const stored = localStorage.getItem('site-theme');
+      if(stored) body.classList.remove('theme--auto'), body.classList.add(stored);
+      btn && btn.addEventListener('click', () => {
+        if(body.classList.contains('theme--dark')) {
+          body.classList.remove('theme--dark');
+          body.classList.add('theme--light');
+          localStorage.setItem('site-theme','theme--light');
+        } else {
+          body.classList.remove('theme--light');
+          body.classList.add('theme--dark');
+          localStorage.setItem('site-theme','theme--dark');
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

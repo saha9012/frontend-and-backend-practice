@@ -1,88 +1,110 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Практика №9 — Семантические теги, Flex и Grid</title>
-    <link rel="stylesheet" href="style/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Главная - Портфолио</title>
+  <link rel="stylesheet" href="style/styles.css">
 </head>
-<body>
-<div class="page-container">
-
-    <!-- ХЭДЕР -->
+<body class="theme--auto">
+  <div class="page">
+    <!-- Header -->
     <header class="header">
-        <h1>Практическое занятие №9</h1>
-        <p>Семантические теги, Flex и Grid</p>
+      <div class="header__wrap">
+        <h1 class="header__title">Моё портфолио</h1>
+        <div class="header__controls">
+          <button class="btn btn--ghost js-theme-toggle" aria-label="Переключить тему">🌓</button>
+        </div>
+      </div>
     </header>
 
-    <!-- НАВИГАЦИЯ -->
+    <!-- Nav -->
     <nav class="nav">
-        <ul class="nav-list">
-            <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
-            <li class="nav-item"><a class="nav-link" href="pages/news.html">Новости</a></li>
-            <li class="nav-item"><a class="nav-link" href="pages/goods.html">Товары</a></li>
-            <li class="nav-item"><a class="nav-link" href="pages/contacts.html">Контакты</a></li>
-        </ul>
+      <ul class="nav__list">
+        <li class="nav__item nav__item--active"><a class="nav__link" href="index.html">Главная</a></li>
+        <li class="nav__item"><a class="nav__link" href="pages/news.html">Новости</a></li>
+        <li class="nav__item"><a class="nav__link" href="pages/goods.html">Товары</a></li>
+        <li class="nav__item"><a class="nav__link" href="pages/contacts.html">Контакты</a></li>
+      </ul>
     </nav>
 
-    <!-- ОСНОВНОЙ КОНТЕНТ -->
-    <main class="content">
+    <!-- Main -->
+    <main class="main">
+      <!-- Profile -->
+      <section class="profile">
+        <div class="profile__card">
+          <img class="profile__photo" src="images/photo.png" alt="Фото автора">
+          <div class="profile__info">
+            <h2 class="profile__name">Недосекин Александр</h2>
+            <p class="profile__group">ЭФБО-15-24</p>
+          </div>
+        </div>
+      </section>
 
-        <!-- ПРОФИЛЬ -->
-        <article class="profile-header">
-            <h1 class="profile-title">Информация об авторе</h1>
-            <img class="profile-photo" src="images/photo.png" alt="Фото автора">
-            <h2 class="profile-name">Недосекин Александр Сергеевич</h2>
-            <p class="profile-group">Группа ЭФБО-15-24</p>
-        </article>
+      <!-- About -->
+      <section class="about">
+        <h2 class="about__title">Обо мне</h2>
+        <div class="about__content">
+          <p class="about__text">
+            Студент, увлекаюсь веб-разработкой. Изучаю HTML, CSS и JavaScript.
+            Люблю аккуратный код и приятные интерфейсы.
+          </p>
+        </div>
+      </section>
 
-        <!-- ОБО МНЕ -->
-        <section class="about-me">
-            <h2>Обо мне</h2>
-            <p>
-                Меня зовут Александр. Увлекаюсь программированием и веб-разработкой.
-                Осваиваю HTML, CSS, JavaScript и современные инструменты верстки. 
-                Люблю аккуратный и чистый код, а также интересные интерфейсы.
-            </p>
-        </section>
+      <!-- Skills -->
+      <section class="skills">
+        <h2 class="skills__title">Мои навыки</h2>
+        <div class="skills__list">
+          <div class="skill skill--html"><span class="skill__name">HTML</span></div>
+          <div class="skill skill--css"><span class="skill__name">CSS</span></div>
+          <div class="skill skill--js"><span class="skill__name">JavaScript</span></div>
+          <div class="skill skill--git"><span class="skill__name">Git / GitHub</span></div>
+        </div>
+      </section>
 
-        <!-- НАВЫКИ -->
-        <section class="skills-container">
-            <h2>Мои навыки</h2>
-            <div class="skills-grid">
-                <div class="skill-tag">HTML5</div>
-                <div class="skill-tag">CSS3</div>
-                <div class="skill-tag">JavaScript</div>
-                <div class="skill-tag">Git / GitHub</div>
-            </div>
-        </section>
+      <!-- Projects -->
+      <section class="projects">
+        <h2 class="projects__title">Проекты</h2>
+        <div class="projects__grid">
+          <article class="project-card project-card--featured">
+            <h3 class="project-card__title">Личный сайт</h3>
+            <p class="project-card__desc">Сайт-портфолио на HTML и CSS</p>
+          </article>
 
-        <!-- ОПЫТ -->
-        <section class="experience-section">
-            <h2 class="section-title">Мой опыт работы</h2>
-            <div class="experience-grid">
-                <article class="experience-card">
-                    <h3 class="experience-title">Проект 1</h3>
-                    <p class="experience-desc">Разработка учебного сайта с навигацией и якорями.</p>
-                </article>
-                <article class="experience-card">
-                    <h3 class="experience-title">Проект 2</h3>
-                    <p class="experience-desc">Создание адаптивного интерфейса на Flex и Grid.</p>
-                </article>
-                <article class="experience-card">
-                    <h3 class="experience-title">Проект 3</h3>
-                    <p class="experience-desc">Работа с Git и публикация сайта на GitHub Pages.</p>
-                </article>
-            </div>
-        </section>
-
+          <article class="project-card">
+            <h3 class="project-card__title">Todo приложение</h3>
+            <p class="project-card__desc">Простое приложение для работы со списком задач</p>
+          </article>
+        </div>
+      </section>
     </main>
 
-    <!-- ФУТЕР -->
+    <!-- Footer -->
     <footer class="footer">
-        <p>© 2025 Недосекин Александр Сергеевич, ЭФБО-15-24</p>
+      <p class="footer__text">© 2025 Недосекин А.С., ЭФБО-15-24</p>
     </footer>
+  </div>
 
-</div>
+  <script>
+    // Theme toggle: applies .theme--dark or .theme--light to <body>
+    (function(){
+      const btn = document.querySelector('.js-theme-toggle');
+      const body = document.body;
+      const stored = localStorage.getItem('site-theme');
+      if(stored) body.classList.remove('theme--auto'), body.classList.add(stored);
+      btn && btn.addEventListener('click', () => {
+        if(body.classList.contains('theme--dark')) {
+          body.classList.remove('theme--dark');
+          body.classList.add('theme--light');
+          localStorage.setItem('site-theme','theme--light');
+        } else {
+          body.classList.remove('theme--light');
+          body.classList.add('theme--dark');
+          localStorage.setItem('site-theme','theme--dark');
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
