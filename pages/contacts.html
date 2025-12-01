@@ -1,163 +1,60 @@
-<!DOCTYPE html>
-<html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Контакты</title>
-  <link rel="stylesheet" href="../style/styles.css">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Главная - Портфолио</title>
+
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 </head>
-<body class="theme--auto">
-  <div class="page">
-    <header class="header">
-      <div class="header__wrap">
-        <h1 class="header__title">Контакты</h1>
-        <div class="header__controls">
-          <button class="btn btn--ghost js-theme-toggle" aria-label="Переключить тему">🌓</button>
+<section id="contacts" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Контакты</h2>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+ <div class="container">
+   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+
+   <div class="collapse navbar-collapse" id="nav">
+     <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html">Проекты</a></li>
+          <li class="nav-item"><a class="nav-link active" href="diary.html">Дневник</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+     </ul>
+   </div>
+ </div>
+</nav>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+
+        <div class="card shadow-sm border-0">
+          <div class="card-body">
+
+            <p class="mb-3">
+              <i class="bi bi-geo-alt-fill me-2"></i>
+              117041, г. Москва, ул. Адмирала Лазарева, д. 62, корп. 2
+            </p>
+
+            <p class="mb-3">
+              <i class="bi bi-telephone-fill me-2"></i>
+              +7 (495) 123-45-67
+            </p>
+
+            <p class="mb-3">
+              <i class="bi bi-envelope-fill me-2"></i>
+              info@russian-kitchen.ru
+            </p>
+
+            <p class="mb-0">
+              <i class="bi bi-clock-fill me-2"></i>
+              Пн–Пт: 09:00–18:00
+            </p>
+
+          </div>
         </div>
+
       </div>
-    </header>
-
-    <nav class="nav">
-      <ul class="nav__list">
-        <li class="nav__item"><a class="nav__link" href="../index.html">Главная</a></li>
-        <li class="nav__item"><a class="nav__link" href="news.html">Новости</a></li>
-        <li class="nav__item"><a class="nav__link" href="goods.html">Товары</a></li>
-        <li class="nav__item nav__item--active"><a class="nav__link" href="contacts.html">Контакты</a></li>
-      </ul>
-    </nav>
-
-    <main class="main">
-      <section class="contacts">
-        <h2 class="contacts__title">Наши контакты</h2>
-
-        <div class="contacts__list">
-          <div class="contact-item">
-            <div class="contact-item__title">Телефон</div>
-            <div class="contact-item__value">+7 (495) 123-45-67</div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-item__title">Email</div>
-            <div class="contact-item__value">example@mail.com</div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-item__title">Адрес</div>
-            <div class="contact-item__value">г. Москва, ул. Примерная, д. 1</div>
-          </div>
-        </div>
-
-        <!-- кнопка открытия модального окна (форма обратной связи) -->
-        <div style="margin-top:20px;">
-          <button class="btn btn--primary js-open-contact">Связаться с нами</button>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <p class="footer__text">© 2025 Недосекин А.С.</p>
-    </footer>
-
-    <!-- МОДАЛЬНОЕ ОКНО: scoped под .contacts через селекторы в styles.css -->
-    <dialog id="contactModal" class="contacts__dialog">
-      <div class="modal-header">
-        <h3 class="modal-header__title">Форма обратной связи</h3>
-      </div>
-
-      <div class="modal-content">
-        <form id="feedbackForm" class="form" method="dialog">
-          <div class="form__row form-group">
-            <label for="name" class="form__label">Имя <span class="required">*</span></label>
-            <input id="name" name="name" class="form__control" type="text" required placeholder="Введите ваше имя">
-          </div>
-
-          <div class="form__row form-group">
-            <label for="phone" class="form__label">Телефон <span class="required">*</span></label>
-            <input id="phone" name="phone" class="form__control" type="tel" required placeholder="+7 (Xxx) Xxx-xx-xx">
-          </div>
-
-          <div class="form__row form-group">
-            <label for="email" class="form__label">Email <span class="required">*</span></label>
-            <input id="email" name="email" class="form__control" type="email" required placeholder="example@mail.ru">
-          </div>
-
-          <div class="form__row form-group">
-            <label for="category" class="form__label">Категория <span class="required">*</span></label>
-            <select id="category" name="category" class="form__control" required>
-              <option value="">Выберите</option>
-              <option value="technical">Техническая поддержка</option>
-              <option value="commercial">Коммерция</option>
-              <option value="cooperation">Сотрудничество</option>
-              <option value="other">Другое</option>
-            </select>
-          </div>
-
-          <div class="form__row form-group">
-            <label for="message" class="form__label">Текст обращения <span class="required">*</span></label>
-            <textarea id="message" name="message" class="form__control" required placeholder="Опишите вашу проблему"></textarea>
-          </div>
-
-          <div class="modal-actions">
-            <button type="reset" class="btn btn--secondary">Очистить</button>
-            <button type="button" class="btn btn--ghost" onclick="document.getElementById('contactModal').close()">Закрыть</button>
-            <button type="button" class="btn btn--primary js-submit-contact">Отправить</button>
-          </div>
-        </form>
-      </div>
-    </dialog>
-
+    </div>
   </div>
-
-  <script>
-    // theme toggle copy
-    (function(){
-      const btn = document.querySelector('.js-theme-toggle');
-      const body = document.body;
-      const stored = localStorage.getItem('site-theme');
-      if(stored) body.classList.remove('theme--auto'), body.classList.add(stored);
-      btn && btn.addEventListener('click', () => {
-        if(body.classList.contains('theme--dark')) {
-          body.classList.remove('theme--dark');
-          body.classList.add('theme--light');
-          localStorage.setItem('site-theme','theme--light');
-        } else {
-          body.classList.remove('theme--light');
-          body.classList.add('theme--dark');
-          localStorage.setItem('site-theme','theme--dark');
-        }
-      });
-    })();
-
-    // modal logic (contacts)
-    (function(){
-      const openBtn = document.querySelector('.js-open-contact');
-      const dialog = document.getElementById('contactModal');
-      const submitBtn = document.querySelector('.js-submit-contact');
-      const form = document.getElementById('feedbackForm');
-
-      openBtn && openBtn.addEventListener('click', ()=> {
-        dialog.showModal();
-      });
-
-      // close when clicking backdrop
-      dialog && dialog.addEventListener('click', (e)=> {
-        if(e.target === dialog) dialog.close();
-      });
-
-      // submit handler
-      submitBtn && submitBtn.addEventListener('click', ()=> {
-        if(!form.checkValidity()) {
-          form.reportValidity();
-          return;
-        }
-        const fd = new FormData(form);
-        const data = Object.fromEntries(fd.entries());
-        console.log('contact form', data);
-        alert('Спасибо! Ваше сообщение отправлено.');
-        dialog.close();
-        form.reset();
-      });
-    })();
-  </script>
-</body>
-</html>
+</section>
